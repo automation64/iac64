@@ -21,16 +21,12 @@
 
 # shellcheck disable=SC2154
 {
-  # Env / IaC64 / Resource Tags
-  export DEV_ENV_IAC64_TAG_ANSIBLE='ans'
-  export DEV_ENV_IAC64_TAG_KUSTOMIZE='kst'
-  export DEV_ENV_IAC64_TAG_HELM='hlm'
-  export DEV_ENV_IAC64_TAG_OPENTOFU='otf'
-  export DEV_ENV_IAC64_TAG_SHELL='sh'
-  export DEV_ENV_IAC64_TAG_TERRAFORM='tf'
-
-  # Env / IaC64 / IaC64 enabled?
-  export DEV_ENV_IAC64_ENABLED="${DEV_ENV_IAC64_ENABLED:-NO}"
+  # Env / KubeCTL / Module environment definition version
+  export DEV_ENV_X_MODULE_CAPS_X_VERSION='1.0.0'
+  # Lib / KubeCTL / Installer
+  export DEV_LIB_KUBECTL_INSTALLER="${DEV_LIB_INSTALLER64_TARGET}/install-kubectl"
+  # Lib / KubeCTL / Target
+  export DEV_LIB_KUBECTL_TARGET="${DEV_LIB_KUBECTL_TARGET:-${DEV_PATH_LIB}/k8s}"
 }
 
 #
@@ -41,13 +37,23 @@
 
 # shellcheck disable=SC2154
 {
-  :
+  # Lib / KubeCTL / Command
+  export DEV_LIB_KUBECTL_BIN="${DEV_LIB_KUBECTL_BIN:-${DEV_LIB_KUBECTL_TARGET}/kubectl}"
 }
 
 #
 # Secrets
 #
 # * Use .secrets.env file or CICD secrets to override values
+#
+
+# shellcheck disable=SC2154
+{
+  :
+}
+
+#
+# External
 #
 
 # shellcheck disable=SC2154

@@ -18,3 +18,4 @@ helm
 hadolint
 docker
 argocd
+kubectl
