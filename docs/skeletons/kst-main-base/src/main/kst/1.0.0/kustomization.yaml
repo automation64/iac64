@@ -1,0 +1,7 @@
+---
+apiVersion: "kustomize.config.k8s.io/v1beta1"
+kind: "Kustomization"
+
+resources:
+  - "X_KUSTOMIZE_RESOURCE_PLACEHOLDER_X"
+...
