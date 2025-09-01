@@ -7,14 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0]
+## [0.2.0]
 
 ### Added
 
-## [0.1.0]
-
 - Kustomize
   - Main module skeleton
+
+## [0.1.0]
 
 ### Added
 
