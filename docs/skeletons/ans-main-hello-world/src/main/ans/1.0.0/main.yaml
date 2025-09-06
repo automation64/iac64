@@ -6,9 +6,5 @@
   tasks:
     - name: "Hello World"
       ansible.builtin.debug:
-        msg: "{{
-          'Host name: ' + ansible_host + ', ' +
-          'Running as user: ' + ansible_user + '@' + ansible_host + ', ' +
-          'Python interpreter: ' + (ansible_python_interpreter | default('UNDEFINED'))
-          }}"
+        msg: "Hello World"
 ...
