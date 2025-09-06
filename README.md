@@ -18,8 +18,8 @@ Help on implementing new features and maintaining the code base is welcomed.
 
 ## License
 
-[<X_LICENSE_ID_X>](LICENSE)
+[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 ## Author
 
-- [X_AUTHOR_X](X_AUTHOR_GIT_URLX)
+- [SerDigital64](https://github.com/serdigital64)
