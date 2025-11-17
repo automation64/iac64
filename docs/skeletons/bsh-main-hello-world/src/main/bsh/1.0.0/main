@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# shellcheck source-path=lib/bl64
+source "${DEV_LIB_BASHLIB64_TARGET}/bashlib64-core.bash" || exit 1
+
+function my_main() {
+  bl64_dbg_app_show_function
+  bl64_msg_show_info 'Hello World'
+}
+
+function my_initialize() {
+  bl64_dbg_app_show_function
+  bl64_msg_show_about
+}
+
+[[ -n "$DEV_CICD_DEBUG" ]] && bl64_dbg_all_enable
+bl64_lib_script_version_set '1.0.0'
+bl64_msg_help_about_set 'Hello World'
+bl64_msg_all_enable_verbose && my_initialize || exit $?
+
+bl64_msg_show_batch_start "$BL64_SCRIPT_ID"
+my_main
+bl64_msg_show_batch_finish $? "$BL64_SCRIPT_ID"

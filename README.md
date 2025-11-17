@@ -4,17 +4,15 @@
 
 Infrastructure-As-Code reference repository structure
 
-## Changelog
-
-Refer to the project changelog for the latest content updates.
-
-- [ChangeLog](CHANGELOG.md)
-
 ## Contributing
 
 Help on implementing new features and maintaining the code base is welcomed.
 
 - [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
+
+## Disclaimer
+
+This repository is provided "as is" without any warranties and is intended solely for educational purposes. The author is not responsible for any damages or issues arising from its use. Additionally, this project is not affiliated with or endorsed by any organization or entity. Use at your own risk.
 
 ## License
 
