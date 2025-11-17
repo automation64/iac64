@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# template-env: 1.1.0
+# template-env: 1.2.0
 #######################################
 # Copyright SerDigital64 - https://github.com/serdigital64
 #
@@ -14,22 +14,6 @@
 #######################################
 
 #
-# Globals
-#
-# * Use .env file to override values
-#
-
-# shellcheck disable=SC2154
-{
-  # Env / KubeCTL / Module environment definition version
-  export DEV_ENV_X_MODULE_CAPS_X_VERSION='1.0.0'
-  # Lib / KubeCTL / Installer
-  export DEV_LIB_KUBECTL_INSTALLER="${DEV_LIB_INSTALLER64_TARGET}/install-kubectl"
-  # Lib / KubeCTL / Target
-  export DEV_LIB_KUBECTL_TARGET="${DEV_LIB_KUBECTL_TARGET:-${DEV_PATH_LIB}/k8s}"
-}
-
-#
 # Locals
 #
 # * Use .local.env file or CICD variables to override values
@@ -37,26 +21,33 @@
 
 # shellcheck disable=SC2154
 {
-  # Lib / KubeCTL / Command
-  export DEV_LIB_KUBECTL_BIN="${DEV_LIB_KUBECTL_BIN:-${DEV_LIB_KUBECTL_TARGET}/kubectl}"
+  # Lib / KubeCtl / Skip installation?
+  export DEV_LIB_KUBECTL_SKIP='YES'
+  # Lib / KubeCtl / Target
+  export DEV_LIB_KUBECTL_TARGET="${DEV_PATH_LIB}/kst"
+  # Lib / KubeCtl / Command
+  export DEV_LIB_KUBECTL_BIN="${DEV_LIB_KUBECTL_BIN:-}"
+  if [[ -z "$DEV_LIB_KUBECTL_BIN" ]]; then
+    DEV_LIB_KUBECTL_BIN="$(bl64_bsh_command_locate_user 'kubectl')"
+    if [[ -z "$DEV_LIB_KUBECTL_BIN" ]]; then
+      DEV_LIB_KUBECTL_BIN="${DEV_LIB_KUBECTL_TARGET}/kubectl"
+      if [[ ! -x "${DEV_LIB_KUBECTL_BIN}" ]]; then
+        DEV_LIB_KUBECTL_SKIP='NO'
+      fi
+    fi
+  fi
 }
 
 #
-# Secrets
+# Internal variables
 #
-# * Use .secrets.env file or CICD secrets to override values
+# * Shared internal variables for module tasks
 #
 
 # shellcheck disable=SC2154
 {
-  :
-}
-
-#
-# External
-#
-
-# shellcheck disable=SC2154
-{
-  :
+  # Env / KubeCtl / Module environment definition version
+  export DEV_ENV_KUBECTL_VERSION='1.0.0'
+  # Lib / KubeCtl / Installer
+  export DEV_LIB_KUBECTL_INSTALLER="${DEV_LIB_INSTALLER64_TARGET}/install-kubectl"
 }

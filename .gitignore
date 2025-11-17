@@ -23,5 +23,8 @@
 # Project specific exclusions
 #
 
+# IAC64 / Staging
+/var/prof/*/*/otf/
+
 # Keep placeholder for empty directories
 !/**/.gitkeep
